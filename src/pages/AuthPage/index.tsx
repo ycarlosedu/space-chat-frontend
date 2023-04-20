@@ -27,7 +27,7 @@ const AuthPage = (props: any) => {
 
     axios
       .post("http://localhost:3001/login", { username, secret })
-      .then((r) => props.onAuth({ ...r.data, secret })) // NOTE: over-ride secret
+      .then((r) => props.onAuth({ user: { ...r.data.user, secret }, projectID: r.data.projectID })) // NOTE: over-ride secret
       .catch((e) => console.log(JSON.stringify(e.response.data)));
   };
 
@@ -49,7 +49,7 @@ const AuthPage = (props: any) => {
         first_name,
         last_name,
       })
-      .then((r) => props.onAuth({ ...r.data, secret })) // NOTE: over-ride secret
+      .then((r) => props.onAuth({ user: { ...r.data.user, secret }, projectID: r.data.projectID })) // NOTE: over-ride secret
       .catch((e) => console.log(JSON.stringify(e.response.data)));
   };
 

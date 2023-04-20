@@ -1,12 +1,14 @@
 import { PrettyChatWindow } from "react-chat-engine-pretty";
+import { onAuthResponse } from "../../App";
 
-const ChatsPage = (props: any) => {
+const ChatsPage = ({user, projectID}: onAuthResponse) => {
+
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
       <PrettyChatWindow
-        projectId={import.meta.env.REACT_APP_CHAT_ENGINE_PROJECT_ID || ""}
-        username={props.user.username}
-        secret={props.user.secret}
+        projectId={projectID || ""}
+        username={user.username}
+        secret={user.secret}
         style={{ height: "100%" }}
       />
     </div>
