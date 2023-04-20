@@ -54,7 +54,7 @@ const AuthPage = (props: any) => {
   };
 
   return (
-    <section className="w-screen h-screen grid place-items-center bg-gradient-to-tl from-violet-600 to-blue-400">
+    <section className="min-w-screen min-h-screen py-2 sm:p-8 grid place-items-center bg-gradient-to-tl from-violet-600 to-blue-400">
 
       <Tabs.Root className="TabsRoot" defaultValue="tab1">
         <Tabs.List className="TabsList" aria-label="Manage your account">

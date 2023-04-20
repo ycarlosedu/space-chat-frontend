@@ -1,11 +1,12 @@
 .DecorativeItem {
   @apply
-  w-1/2
+  w-full
+  min-h-[300px]
   rounded-xl  
   h-full
   z-10
-  hidden
-  md:flex;
+  flex
+  md:w-1/2;
   background-image: url(../../assets/svgs/bg-space.svg);
   aspect-ratio: 16/9;
   background-repeat: no-repeat;
