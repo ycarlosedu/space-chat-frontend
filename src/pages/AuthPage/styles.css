@@ -76,22 +76,23 @@ input {
 .TabsMainContent {
   @apply
   w-full
-}
-
-.TabsDecorativeItem {
-  @apply
-  w-1/2
-  rounded 
-  h-full
-  hidden
-  z-10
-  md:flex
+  flex
+  flex-col
+  gap-2
 }
 
 .TabsTitle {
   @apply
   text-violet-700
-  text-xl;
+  text-4xl
+  text-center;
+}
+
+.TabsText {
+  @apply
+  text-violet-700
+  text-xl
+  text-center;
 }
 
 .toLeft {

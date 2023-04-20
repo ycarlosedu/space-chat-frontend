@@ -1,0 +1,20 @@
+.DecorativeItem {
+  @apply
+  w-1/2
+  rounded-xl  
+  h-full
+  z-10
+  hidden
+  md:flex;
+  background-image: url(../../assets/svgs/bg-space.svg);
+  aspect-ratio: 16/9;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Rocket {
+  @apply
+  -rotate-[20deg] 
+  translate-y-20
+  -translate-x-20
+}
