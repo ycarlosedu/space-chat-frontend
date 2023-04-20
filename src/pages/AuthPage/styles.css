@@ -10,6 +10,7 @@ input {
   w-3/4
   h-3/4
   bg-white/40
+  box-border
   border
   border-white
   border-opacity-20
@@ -54,6 +55,7 @@ input {
 .TabsContent {
   @apply
   p-5
+  h-[95%]
   bg-transparent
   outline-none
   outline-offset-0
@@ -62,10 +64,73 @@ input {
   border-bottom-right-radius: 6px;
 }
 
+.TabsDivisor {
+  @apply
+  flex 
+  w-full 
+  h-full 
+  box-border 
+  gap-6
+}
+
+.TabsMainContent {
+  @apply
+  w-full
+}
+
+.TabsDecorativeItem {
+  @apply
+  w-1/2
+  rounded 
+  h-full
+  hidden
+  z-10
+  md:flex
+}
+
 .TabsTitle {
   @apply
   text-violet-700
   text-xl;
+}
+
+.toLeft {
+  @apply
+  animate-fade
+  md:animate-toLeft
+}
+
+.toRight {
+  @apply
+  animate-fade
+  md:animate-toRight
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes toLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes toRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* -------------------------------- FORM -------------------------------- */
@@ -77,6 +142,8 @@ input {
   flex
   flex-col
   gap-3
+  box-border
+  w-full
 }
 
 .FormField {
@@ -121,7 +188,7 @@ input {
   p-2
   border
   border-solid
-  border-violet-600;
+  border-violet-600
 }
 
 .Input:focus {
@@ -134,7 +201,7 @@ input {
 
 .Button {
   @apply
-  w-1/3
+  w-full
   inline-flex
   items-center
   justify-center
@@ -144,9 +211,10 @@ input {
   font-medium
   h-9
   transition-all
+  box-border
   cursor-pointer
   active:translate-y-1
-  hover:opacity-80;
+  hover:opacity-80
 }
 
 .Button.violet {

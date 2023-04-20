@@ -6,7 +6,13 @@ module.exports = {
     './src/**/*.tsx',
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'toRight': 'toRight 0.5s ease-in-out',
+        'toLeft': 'toLeft 0.5s ease-in-out',
+        'fade': 'fade 0.5s ease-in-out'
+      }
+    },
   },
   plugins: [],
 }

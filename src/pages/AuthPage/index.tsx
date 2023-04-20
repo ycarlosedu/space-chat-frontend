@@ -67,15 +67,25 @@ const AuthPage = (props: any) => {
         </Tabs.List>
 
         <Tabs.Content className="TabsContent" value="tab1">
-          <p className="TabsTitle">Hi RealChater! Type your data to enter your account.</p>
-          
-          <LoginForm onSubmit={onLogin} />
+          <div className="TabsDivisor">
+            <div className="TabsMainContent toLeft">
+              <p className="TabsTitle">Hi RealChater! Type your data to enter your account.</p>
+              <LoginForm onSubmit={onLogin} />
+            </div>
+
+            <img className="TabsDecorativeItem toRight" src="https://i.ibb.co/7WQWZQZ/istockphoto-1371726643-170667a.jpg" alt="" />
+          </div>
         </Tabs.Content>
 
         <Tabs.Content className="TabsContent" value="tab2">
-          <p className="TabsTitle">Welcome to RealChat! Type your data to create your account.</p>
-          
-          <SignUpForm onSubmit={onSignup} />
+        <div className="TabsDivisor">
+          <img className="TabsDecorativeItem toLeft" src="https://i.ibb.co/7WQWZQZ/istockphoto-1371726643-170667a.jpg" alt="" />
+
+          <div className="TabsMainContent toRight">
+            <p className="TabsTitle">Welcome to RealChat! Type your data to create your account.</p>
+            <SignUpForm onSubmit={onSignup} />
+          </div>
+        </div>
         </Tabs.Content>
       </Tabs.Root>
 
