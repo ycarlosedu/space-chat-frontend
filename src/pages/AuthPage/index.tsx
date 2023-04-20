@@ -1,15 +1,30 @@
 import { useState } from "react";
 import axios from "axios";
+import * as Tabs from '@radix-ui/react-tabs';
+import LoginForm from "./LoginForm";
+import SignUpForm from "./SignUpForm";
+
+export type LoginValues = {
+  username: string;
+  secret: string;
+}
+
+export type SignUpValues = {
+  username: string;
+  secret: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+}
 
 const AuthPage = (props: any) => {
-  const [username, setUsername] = useState<string>();
-  const [secret, setSecret] = useState<string>();
-  const [email, setEmail] = useState<string>();
-  const [first_name, setFirstName] = useState<string>();
-  const [last_name, setLastName] = useState<string>();
 
   const onLogin = (e: any) => {
     e.preventDefault();
+
+    const secret = e.target.elements.secret.value
+    const username = e.target.elements.username.value
+
     axios
       .post("http://localhost:3001/login", { username, secret })
       .then((r) => props.onAuth({ ...r.data, secret })) // NOTE: over-ride secret
@@ -18,6 +33,14 @@ const AuthPage = (props: any) => {
 
   const onSignup = (e: any) => {
     e.preventDefault();
+    console.log(e)
+
+    const secret = e.target.elements.secret.value
+    const username = e.target.elements.username.value
+    const email = e.target.elements.email.value
+    const first_name = e.target.elements.first_name.value
+    const last_name = e.target.elements.last_name.value
+
     axios
       .post("http://localhost:3001/signup", {
         username,
@@ -31,62 +54,30 @@ const AuthPage = (props: any) => {
   };
 
   return (
-    <section className="bg-zinc-700">
-      <div className="card">
-        {/* Login Form */}
-        <form onSubmit={onLogin}>
-          <div className="title">Login</div>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="password"
-            name="secret"
-            placeholder="Password"
-            onChange={(e) => setSecret(e.target.value)}
-          />
-          <button type="submit">LOG IN</button>
-        </form>
+    <section className="w-screen h-screen grid place-items-center bg-gradient-to-tl from-violet-600 to-blue-400">
 
-        {/* Sign Up Form */}
-        {/* <form onSubmit={onSignup}>
-          <div className="title">or Sign Up</div>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="password"
-            name="secret"
-            placeholder="Password"
-            onChange={(e) => setSecret(e.target.value)}
-          />
-          <input
-            type="text"
-            name="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="text"
-            name="first_name"
-            placeholder="First name"
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <input
-            type="text"
-            name="last_name"
-            placeholder="Last name"
-            onChange={(e) => setLastName(e.target.value)}
-          />
-          <button type="submit">SIGN UP</button>
-        </form> */}
-      </div>
+      <Tabs.Root className="TabsRoot" defaultValue="tab1">
+        <Tabs.List className="TabsList" aria-label="Manage your account">
+          <Tabs.Trigger className="TabsTrigger" value="tab1">
+            Login
+          </Tabs.Trigger>
+          <Tabs.Trigger className="TabsTrigger" value="tab2">
+            SignUp
+          </Tabs.Trigger>
+        </Tabs.List>
+
+        <Tabs.Content className="TabsContent" value="tab1">
+          <p className="TabsTitle">Hi RealChater! Type your data to enter your account.</p>
+          
+          <LoginForm onSubmit={onLogin} />
+        </Tabs.Content>
+
+        <Tabs.Content className="TabsContent" value="tab2">
+          <p className="TabsTitle">Welcome to RealChat! Type your data to create your account.</p>
+          
+          <SignUpForm onSubmit={onSignup} />
+        </Tabs.Content>
+      </Tabs.Root>
 
     </section>
   );

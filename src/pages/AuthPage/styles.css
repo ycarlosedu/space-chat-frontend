@@ -1,0 +1,164 @@
+
+/* reset */
+button,
+input {
+  all: unset;
+}
+
+.TabsRoot {
+  @apply
+  w-3/4
+  h-3/4
+  bg-white/40
+  border
+  border-white
+  border-opacity-20
+  rounded-lg;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+}
+
+.TabsList {
+  @apply
+  flex
+  flex-shrink-0
+  border-b
+  border-b-zinc-300;
+}
+
+.TabsTrigger {
+  @apply
+  px-5
+  h-11
+  flex
+  flex-1
+  items-center
+  justify-center
+  bg-transparent
+  text-base
+  select-none
+  font-semibold
+  transition-all
+  cursor-pointer
+  text-violet-700
+  hover:text-violet-900
+}
+
+.TabsTrigger[data-state='active'] {
+  @apply 
+  text-violet-900;
+  box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor;
+}
+
+.TabsContent {
+  @apply
+  p-5
+  bg-transparent
+  outline-none
+  outline-offset-0
+  box-border;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.TabsTitle {
+  @apply
+  text-violet-700
+  text-xl;
+}
+
+/* -------------------------------- FORM -------------------------------- */
+
+.FormRoot {
+  @apply
+  my-2
+  flex-grow
+  flex
+  flex-col
+  gap-3
+}
+
+.FormField {
+  @apply
+  w-full
+  flex
+  flex-col
+  gap-1;
+}
+
+.FormLabelMessage {
+  @apply
+  flex
+  justify-between
+  align-baseline;
+}
+
+.FormLabel {
+  @apply
+  text-base
+  text-black;
+}
+
+.FormMessage {
+  @apply
+  text-sm
+  text-rose-700
+  font-bold
+}
+
+.Input {
+  @apply
+  w-full
+  inline-flex
+  items-center
+  justify-center
+  rounded
+  text-base
+  bg-white/60
+  text-violet-600
+  box-border
+  p-2
+  border
+  border-solid
+  border-violet-600;
+}
+
+.Input:focus {
+  box-shadow: 0 0 0 2px #7057BD;
+}
+
+/* .Input:invalid {
+  box-shadow: 0 0 0 1px #BE123C;
+} */
+
+.Button {
+  @apply
+  w-1/3
+  inline-flex
+  items-center
+  justify-center
+  rounded
+  px-4
+  text-base
+  font-medium
+  h-9
+  transition-all
+  cursor-pointer
+  active:translate-y-1
+  hover:opacity-80;
+}
+
+.Button.violet {
+  @apply
+  bg-transparent
+  border-2
+  border-solid
+  border-violet-700
+  text-violet-800
+}
+.Button.violet:focus {
+  @apply
+  shadow-md
+  shadow-violet-900;
+}
