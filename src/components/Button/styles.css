@@ -1,0 +1,51 @@
+.Button {
+  @apply
+  w-full
+  inline-flex
+  gap-2
+  items-center
+  justify-center
+  rounded
+  px-4
+  py-5
+  text-base
+  font-medium
+  h-9
+  transition-all
+  box-border
+  cursor-pointer
+}
+
+.Button.violet {
+  @apply
+  bg-transparent
+  border-2
+  border-solid
+  border-violet-500
+  text-violet-500
+}
+
+.Button.violet:hover {
+  @apply
+  bg-violet-500
+  text-white
+}
+
+.Button.violet:focus {
+  @apply
+  shadow-md
+  shadow-violet-500;
+}
+
+.Button.violet:active:enabled {
+  @apply
+  translate-y-2
+}
+
+.Button.violet:disabled {
+  @apply
+  border-zinc-500
+  bg-zinc-500
+  text-white
+  cursor-default
+}

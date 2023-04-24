@@ -1,10 +1,12 @@
 import * as Form from '@radix-ui/react-form';
+import Button from '../../../components/Button';
 
 export type LoginFormProps = {
   onSubmit: (value: any) => void;
+  isLoading: boolean;
 }
 
-export default function LoginForm({onSubmit}: LoginFormProps) {
+export default function LoginForm({onSubmit, isLoading}: LoginFormProps) {
   return (
     <Form.Root className="FormRoot" onSubmit={onSubmit}>
       <Form.Field className="FormField" name="username">
@@ -31,9 +33,9 @@ export default function LoginForm({onSubmit}: LoginFormProps) {
         </Form.Control>
       </Form.Field>
       <Form.Submit asChild>
-        <button className="Button violet" style={{ marginTop: 10 }}>
+        <Button isLoading={isLoading}>
           Enter Account
-        </button>
+        </Button>
       </Form.Submit>
     </Form.Root>
   )

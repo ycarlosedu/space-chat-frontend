@@ -4,6 +4,9 @@ import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import DecorativeItem from "../../components/DecorativeItem";
 import Background from "../../components/Background";
+import { useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
+import { ERROR_GENERIC } from "../../constants";
 
 export type LoginValues = {
   username: string;
@@ -19,22 +22,28 @@ export type SignUpValues = {
 }
 
 const AuthPage = (props: any) => {
+  const [isLoading, setIsLoading] = useState(false)
 
-  const onLogin = (e: any) => {
+  const onLogin = async (e: any) => {
     e.preventDefault();
+    setIsLoading(true)
 
     const secret = e.target.elements.secret.value
     const username = e.target.elements.username.value
 
-    axios
-      .post("http://localhost:3001/login", { username, secret })
-      .then((r) => props.onAuth({ user: { ...r.data.user, secret }, projectID: r.data.projectID })) // NOTE: over-ride secret
-      .catch((e) => console.log(JSON.stringify(e.response.data)));
+    try {
+      const { data } = await axios.post("http://localhost:3001/login", { username, secret })
+      props.onAuth({ user: { ...data.user, secret }, projectID: data.projectID }) // NOTE: over-ride secret
+    } catch (e: any) {
+      toast.error(e?.response?.data?.detail || e?.response?.data?.message || ERROR_GENERIC)
+    } finally {
+      setIsLoading(false)
+    }
   };
 
-  const onSignup = (e: any) => {
+  const onSignup = async (e: any) => {
     e.preventDefault();
-    console.log(e)
+    setIsLoading(true)
 
     const secret = e.target.elements.secret.value
     const username = e.target.elements.username.value
@@ -42,21 +51,27 @@ const AuthPage = (props: any) => {
     const first_name = e.target.elements.first_name.value
     const last_name = e.target.elements.last_name.value
 
-    axios
-      .post("http://localhost:3001/signup", {
-        username,
-        secret,
-        email,
-        first_name,
-        last_name,
-      })
-      .then((r) => props.onAuth({ user: { ...r.data.user, secret }, projectID: r.data.projectID })) // NOTE: over-ride secret
-      .catch((e) => console.log(JSON.stringify(e.response.data)));
+    try {
+      const { data } = await axios.post("http://localhost:3001/signup", {
+          username,
+          secret,
+          email,
+          first_name,
+          last_name,
+        })
+      props.onAuth({ user: { ...data.user, secret }, projectID: data.projectID }) // NOTE: over-ride secret
+
+    } catch (e: any) {
+      toast.error(e?.response?.data?.detail || e?.response?.data?.message || ERROR_GENERIC)
+    } finally {
+      setIsLoading(false)
+    }
   };
 
   return (
     <Background>
 
+      <Toaster/>
       <Tabs.Root className="TabsRoot" defaultValue="tab1">
         <Tabs.List className="TabsList" aria-label="Manage your account">
           <Tabs.Trigger className="TabsTrigger" value="tab1">
@@ -72,7 +87,7 @@ const AuthPage = (props: any) => {
             <div className="TabsMainContent toLeft">
               <h2 className="TabsTitle">Hi SpaceChatter!</h2>
               <p className="TabsText">Type your data to enter your account</p>
-              <LoginForm onSubmit={onLogin} />
+              <LoginForm onSubmit={onLogin} isLoading={isLoading} />
             </div>
 
             <DecorativeItem className="toRight" />
@@ -86,7 +101,7 @@ const AuthPage = (props: any) => {
             <div className="TabsMainContent toRight">
               <h2 className="TabsTitle">Welcome to SpaceChat!</h2>
               <p className="TabsText">Type your data to create your account.</p>
-              <SignUpForm onSubmit={onSignup} />
+              <SignUpForm onSubmit={onSignup} isLoading={isLoading} />
             </div>
           </div>
         </Tabs.Content>

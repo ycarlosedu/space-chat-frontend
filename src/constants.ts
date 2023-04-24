@@ -1,0 +1,1 @@
+export const ERROR_GENERIC = 'Unexpected Error, try again later!'
