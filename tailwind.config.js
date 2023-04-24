@@ -11,6 +11,10 @@ module.exports = {
         'toRight': 'toRight 0.5s ease-in-out',
         'toLeft': 'toLeft 0.5s ease-in-out',
         'fade': 'fade 0.5s ease-in-out'
+      },
+      textColor: {
+        'primary': '#FFF',
+        'primaryDark': '#d4d4d8',
       }
     },
   },

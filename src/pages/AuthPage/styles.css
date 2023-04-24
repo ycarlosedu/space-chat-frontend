@@ -11,7 +11,7 @@ input {
   max-w-6xl
   min-w-0
   min-h-[75vh]
-  bg-white/40
+  bg-black/40
   box-border
   border
   border-white
@@ -45,13 +45,13 @@ input {
   font-semibold
   transition-all
   cursor-pointer
-  text-violet-700
-  hover:text-violet-900
+  text-white
+  hover:text-violet-500
 }
 
 .TabsTrigger[data-state='active'] {
   @apply 
-  text-violet-900;
+  text-violet-500;
   box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor;
 }
 
@@ -88,14 +88,14 @@ input {
 
 .TabsTitle {
   @apply
-  text-violet-700
+  text-violet-500
   text-4xl
   text-center;
 }
 
 .TabsText {
   @apply
-  text-violet-700
+  text-violet-500
   text-xl
   text-center;
 }
@@ -170,7 +170,7 @@ input {
 .FormLabel {
   @apply
   text-base
-  text-black;
+  text-white;
 }
 
 .FormMessage {
@@ -178,6 +178,7 @@ input {
   text-sm
   text-rose-700
   font-bold
+  text-right
 }
 
 .Input {
@@ -188,13 +189,13 @@ input {
   justify-center
   rounded
   text-base
-  bg-white/60
-  text-violet-600
+  bg-transparent
+  text-violet-500
   box-border
   p-2
   border
   border-solid
-  border-violet-600
+  border-violet-500
 }
 
 .Input:focus {
@@ -213,6 +214,7 @@ input {
   justify-center
   rounded
   px-4
+  py-5
   text-base
   font-medium
   h-9
@@ -220,19 +222,27 @@ input {
   box-border
   cursor-pointer
   active:translate-y-1
-  hover:opacity-80
 }
+
+
 
 .Button.violet {
   @apply
   bg-transparent
   border-2
   border-solid
-  border-violet-700
-  text-violet-800
+  border-violet-500
+  text-violet-500
 }
+
+.Button.violet:hover {
+  @apply
+  bg-violet-500
+  text-white
+}
+
 .Button.violet:focus {
   @apply
   shadow-md
-  shadow-violet-900;
+  shadow-violet-500;
 }

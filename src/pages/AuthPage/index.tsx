@@ -3,6 +3,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import DecorativeItem from "../../components/DecorativeItem";
+import Background from "../../components/Background";
 
 export type LoginValues = {
   username: string;
@@ -54,7 +55,7 @@ const AuthPage = (props: any) => {
   };
 
   return (
-    <section className="min-w-screen min-h-screen py-2 sm:p-8 grid place-items-center bg-gradient-to-tl from-violet-600 to-blue-400">
+    <Background>
 
       <Tabs.Root className="TabsRoot" defaultValue="tab1">
         <Tabs.List className="TabsList" aria-label="Manage your account">
@@ -91,7 +92,7 @@ const AuthPage = (props: any) => {
         </Tabs.Content>
       </Tabs.Root>
 
-    </section>
+    </Background>
   );
 };
 
