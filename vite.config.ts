@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [viteCommonjs(), react()],
   optimizeDeps: {
     esbuildOptions: {
-      plugins: [esbuildCommonjs(['react-s3'])],
+      plugins: [esbuildCommonjs(['react-s3', 'websocket'])],
     },
   }
 })
