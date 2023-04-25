@@ -7,6 +7,7 @@ import Background from "../../components/Background";
 import { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { ERROR_GENERIC } from "../../constants";
+import { onAuthResponse } from "../../App";
 
 export type LoginValues = {
   username: string;
@@ -21,7 +22,11 @@ export type SignUpValues = {
   last_name: string;
 }
 
-const AuthPage = (props: any) => {
+type AuthPageProps = {
+  onAuth: (authData: onAuthResponse) => void;
+}
+
+const AuthPage = (props: AuthPageProps) => {
   const [isLoading, setIsLoading] = useState(false)
 
   const onLogin = async (e: any) => {

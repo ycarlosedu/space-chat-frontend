@@ -27,7 +27,7 @@ code {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: none;
 }
 
 /* Handle */

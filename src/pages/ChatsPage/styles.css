@@ -1,0 +1,145 @@
+#ChatPage {
+  @apply
+  w-screen
+  h-screen
+  !bg-gradient-to-tl
+  from-violet-500
+  to-blue-400
+}
+
+#ChatPage > div div {
+  @apply
+  !bg-transparent
+  !font-sans
+  !text-white;
+  background: none;
+}
+
+/* CHATS HEADER */
+
+.ce-chat-list > div:first-child > div:first-child::before {
+  content: 'Space '
+}
+
+/* CHAT HEADER */
+
+.anticon.anticon-paper-clip.ce-custom-header-icon,
+.anticon.anticon-delete.ce-custom-header-icon {
+  @apply
+  !text-inherit;
+}
+
+/* CHAT BODY */
+
+.ce-message-list {
+  @apply
+  !bg-transparent;
+  background: none;
+}
+
+#ChatPage .ce-their-message-body {
+  @apply
+  !bg-white
+  !text-violet-600
+}
+
+.ce-my-message-body {
+  @apply
+  border-2
+  border-white
+  border-solid
+}
+
+.ce-my-message-timestamp {
+  @apply
+  !text-inherit;
+}
+
+.ce-my-message-attachments,
+.ce-my-message-images {
+  @apply
+  !w-full
+  !m-0
+  flex
+  justify-end
+}
+
+.ce-custom-message-form {
+  @apply
+  !bg-transparent
+  flex
+  items-center
+  justify-start
+  gap-2;
+  background: none;
+}
+
+.ce-custom-message-input {
+  @apply
+  !bg-transparent
+  !placeholder-white
+  !mt-0;
+  background: none;
+}
+
+.ce-new-chat-button {
+  @apply
+  !bg-transparent
+  !border-none;
+  background: none;
+}
+
+.ce-custom-send-button,
+.ce-create-chat-button {
+  @apply
+  flex
+  items-center
+  justify-center
+  hover:!rotate-90
+}
+
+/* NO MESSAGES */
+
+.ce-ice-breaker-wrapper {
+  @apply
+  flex
+  flex-col
+  items-center
+}
+
+/* CREATE CHAT */
+
+.ce-custom-chat-form {
+  @apply
+  !flex
+  gap-2
+  items-center
+  justify-start
+}
+
+.ce-custom-chat-form > div {
+  @apply
+  !m-0
+  !w-full
+  px-3
+}
+
+.ce-custom-chat-form > .ce-create-chat-button {
+  @apply
+  !relative
+  !inset-0
+  box-border;
+}
+
+/* NEW CHAT SELECT USERS */
+
+.ce-custom-chat-form > div > #react-select-5-listbox > div {
+  @apply
+  px-2
+}
+
+.ce-custom-chat-form > div > #react-select-5-listbox > div > div {
+  @apply
+  rounded
+  hover:!bg-black
+}

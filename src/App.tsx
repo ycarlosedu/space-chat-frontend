@@ -29,7 +29,7 @@ function App() {
   const [data, setData] = useState<onAuthResponse>();
 
   if (!data) {
-    return <AuthPage onAuth={(onAuthResponse: any) => setData(onAuthResponse)} />;
+    return <AuthPage onAuth={(authData: onAuthResponse) => setData(authData)} />;
   } else {
     return <ChatsPage user={data.user} projectID={data.projectID} />;
   }
