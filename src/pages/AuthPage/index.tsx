@@ -8,6 +8,7 @@ import { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { ERROR_GENERIC } from "../../constants";
 import { onAuthResponse } from "../../App";
+import request from "../../utils/request";
 
 export type LoginValues = {
   username: string;
@@ -37,7 +38,7 @@ const AuthPage = (props: AuthPageProps) => {
     const username = e.target.elements.username.value
 
     try {
-      const { data } = await axios.post("http://localhost:3001/login", { username, secret })
+      const { data } = await request.post("login", { username, secret })
       props.onAuth({ user: { ...data.user, secret }, projectID: data.projectID }) // NOTE: over-ride secret
     } catch (e: any) {
       toast.error(e?.response?.data?.detail || e?.response?.data?.message || ERROR_GENERIC)
@@ -57,7 +58,7 @@ const AuthPage = (props: AuthPageProps) => {
     const last_name = e.target.elements.last_name.value
 
     try {
-      const { data } = await axios.post("http://localhost:3001/signup", {
+      const { data } = await request.post("signup", {
           username,
           secret,
           email,
