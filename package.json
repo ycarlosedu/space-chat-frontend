@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@phosphor-icons/react": "^2.0.8",
     "@radix-ui/react-form": "^0.0.2",
     "@radix-ui/react-tabs": "^1.0.3",
